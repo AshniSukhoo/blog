@@ -1,0 +1,13 @@
+#content{
+
+	text-align:left;
+	
+}
+
+body{
+	background-image: url("bg_5.jpg");
+	background-size:cover;
+	text-align: right;
+	padding-top:50px;
+	padding-right:100px;
+}
