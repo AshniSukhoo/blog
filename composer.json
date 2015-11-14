@@ -1,0 +1,13 @@
+{
+  "name": "Pholux",
+  "description": "Pholux Blog.",
+  "keywords": ["Blog", "Site"],
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "App\\": "",
+      "Core\\":"core"
+    },
+    "files": ["core/helpers.php"]
+  }
+}

@@ -1,5 +1,5 @@
 <?php 
-	alert("Username has been taken!");</script>'; // Prompts the user
+	/*alert("Username has been taken!");</script>'; // Prompts the user
            Print '<script>window.location.assign("index.php");</script>'; // redirects to index.php
         }
     }
@@ -10,4 +10,4 @@
         Print '<script>alert("Successfully Registered!");</script>'; // Prompts the user
         Print '<script>window.location.assign("index.php");</script>'; // redirects to index.php
     }
-}
+}*/
