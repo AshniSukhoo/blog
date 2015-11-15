@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+
 /**
  * Class HomeController
  *
@@ -11,11 +13,19 @@ class HomeController
 {
 
 	/**
+	 * Create a new instance of HomeController
+	 */
+	public function __construct()
+	{
+
+	}
+
+	/**
 	 * Index function of HomeController
 	 */
 	public function index()
 	{
-		view('home');
+
 	}
 
 	/**

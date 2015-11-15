@@ -48,16 +48,16 @@ body{
 .myButLogin {
     background:url(../img/login.png) no-repeat;
     cursor:pointer;
-    width: 200px;
-    height: 100px;
+    width: 148px;
+    height: 51px;
     border: none;
 }
 
 .myButSignup{
 	background:url(../img/signup.png) no-repeat;
     cursor:pointer;
-    width: 200px;
-    height: 100px;
+    width: 140px;
+    height: 40px;
     border: none;
 }
 
