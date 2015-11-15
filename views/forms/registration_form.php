@@ -1,4 +1,7 @@
 <form action="/blog/register-process" method="post" >
+	<?php if(isset($register_error_messages['username']) && $register_error_messages['username']): ?>
+		<p style="color: red;"><?=$register_error_messages['username']?></p>
+	<?php endif; ?>
 	<table cellpadding="8">
 		<tr>
 			<td><label>Username:</label></td>
@@ -7,7 +10,7 @@
 
 		<tr>
 			<td><label>Password:</label></td>
-			<td><input type="password" name="password" placeholder="Password"/></td>
+			<td><input type="password" name="password" placeholder="Password" /></td>
 		</tr>
 
 		<tr>

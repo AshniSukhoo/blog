@@ -25,7 +25,12 @@ class HomeController
 	 */
 	public function index()
 	{
+		$data = [
+			'test' => '1',
+			'test2' => '2',
+		];
 
+		view('home', $data);
 	}
 
 	/**

@@ -27,10 +27,17 @@ class View
 	/**
 	 * Loads a new view
 	 *
-	 * @param string $viewName
+	 * @param $viewName
+	 * @param array $args
 	 */
-	public function make($viewName)
+	public function make($viewName, $args = [])
 	{
+		//We have arguments
+		if(!empty($args)) {
+			//Extract variables
+			extract($args, EXTR_OVERWRITE);
+		}
+
 		//Loads the new view
 		include $this->baseViewFolder.'/'.$viewName.'.php';
 	}

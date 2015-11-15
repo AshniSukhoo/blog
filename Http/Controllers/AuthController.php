@@ -36,8 +36,14 @@ class AuthController
 		//Form not valid
 		$validator = true;
 
+		//Error messages
+		$data['register_error_messages'] = [];
+
 		//Username
 		if(!isset($_POST['username']) || $_POST['username'] == '') {
+			//Set error message for registration form
+			$data['register_error_messages']['username'] = 'Username is required';
+			//Validator is false
 			$validator = false;
 		}
 
@@ -68,7 +74,7 @@ class AuthController
 
 		} else {
 			//Form is not valid
-			view('login-register');
+			view('login-register', $data);
 		}
 	}
 
