@@ -2,7 +2,14 @@
 	<table cellpadding="8">
 		<tr>
 			<td><label for="username">Username:</label></td>
-			<td><input type="text" id="username" name="username" placeholder="Username" />
+			<td><input type="text" id="username" name="username" placeholder="Username" /></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<?php if(isset($login_error_messages['username']) && $login_error_messages['username']): ?>
+					<p style="color:red;"><?=$login_error_messages['username']?></p>
+				<?php endif; ?>
+			</td>
 		</tr>
 
 		<tr>

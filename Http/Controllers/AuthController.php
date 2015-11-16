@@ -25,7 +25,19 @@ class AuthController
 	 */
 	public function postLogin()
 	{
-		echo "login process";
+		//Form not valid
+		$validator = true;
+
+		//Error messages
+		$data['login_error_messages'] = [];
+
+		//Username
+		if(!isset($_POST['username']) || $_POST['username'] == '') {
+			//Set error message for login form username
+			$data['login_error_messages']['username'] = 'Username is required!';
+			//Validator is false
+			$validator = false;
+		}
 	}
 
 	/**
@@ -41,12 +53,24 @@ class AuthController
 
 		//Username
 		if(!isset($_POST['username']) || $_POST['username'] == '') {
-			//Set error message for registration form
-			$data['register_error_messages']['username'] = 'Username is required';
+			//Set error message for registration form username
+			$data['register_error_messages']['username'] = 'Username is required!';
 			//Validator is false
 			$validator = false;
 		}
-
+		if(!isset($_POST['password']) || $_POST['password'] == '') {
+			//Set error message for registration form password
+			$data['register_error_messages']['password'] = 'Password is required!';
+			//Validator is false
+			$validator = false;
+		}
+		if(!isset($_POST['email']) || $_POST['email'] == '') {
+			//Set error message for registration form email
+			$data['register_error_messages']['email'] = 'E-mail is required!';
+			//Validator is false
+			$validator = false;
+		}
+		
 		//If form is valid the continue processing
 		if($validator) {
 			//Create new user model
