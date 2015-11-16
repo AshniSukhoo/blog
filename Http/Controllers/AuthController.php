@@ -38,6 +38,39 @@ class AuthController
 			//Validator is false
 			$validator = false;
 		}
+
+		//If form is valid the continue processing
+		if($validator) {
+			//Query to check username and password in database
+			//Create new haser object
+			$hasher = new Hash;
+			//Get credentials
+			$username = $_POST['username'];
+			$password = $hasher->make($_POST['password']);
+
+			//Create user model
+			$user = new User;
+			//Check username an password in database
+			$results = $user->query("SELECT * FROM users WHERE username = '".$username."' AND password = '".$password."'");
+
+			//Login is correct
+			if($results !== false) {
+				//Login success
+				//Set the sessions data
+				$_SESSION['isLoggedIn'] = true;
+				$_SESSION['user_id'] = $results[0]['id'];
+				//Go back to home page
+				header('location:/blog');
+			} else {
+				//Login incorrect
+				$data['alert_login'] = 'Username or password is incorrect';
+				//Reload page
+				view('login-register', $data);
+			}
+		} else {
+			//Form is not valid
+			view('login-register', $data);
+		}
 	}
 
 	/**
@@ -91,14 +124,36 @@ class AuthController
 			$results = $user->insert($data);
 
 			if($results) {
-				echo 'New user inserted';
+				//Set success message
+				$data['alert_msg'] = 'Your account has been created';
+				//Reload page
+				view('login-register', $data);
 			} else {
-				echo 'No data inserted';
+				//Set error message
+				$data['alert_msg'] = 'Your Could not be created';
+				//Reload page
+				view('login-register', $data);
 			}
-
 		} else {
 			//Form is not valid
 			view('login-register', $data);
+		}
+	}
+
+	/**
+	 * Logs a user out
+	 */
+	public function getLogout()
+	{
+		//User must be logged in first
+		if(isLoggedIn()) {
+			//Destroy the session
+			session_destroy();
+			//Go back to Login page
+			header('location:/blog/login-register');
+		} else {
+			//Go back to home page
+			header('location:/blog');
 		}
 	}
 

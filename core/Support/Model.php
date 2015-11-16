@@ -79,7 +79,7 @@ class Model
 				return false;
 			}
 			//Query executed correctly
-			if($results == true) {
+			if($results === true) {
 				//return true
 				return true;
 			}
@@ -93,8 +93,15 @@ class Model
 			}
 			//Free results
 			mysql_free_result($results);
-			//Return array
-			return $rows;
+			//We have rows
+			if(!empty($rows)) {
+				//Return the rows
+				//Return array
+				return $rows;
+			} else {
+				//No rows
+				return false;
+			}
 		} catch (Exception $e) {
 			//Unexpected error
 			return false;

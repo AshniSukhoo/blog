@@ -25,6 +25,14 @@ class HomeController
 	 */
 	public function index()
 	{
+		//User is logged in
+		if(isLoggedIn()) {
+			echo "you are logged in";
+		} else {
+			//User is not logged in
+			echo "You are not logged in";
+		}
+
 		$data = [
 			'test' => '1',
 			'test2' => '2',
@@ -34,11 +42,18 @@ class HomeController
 	}
 
 	/**
-	 *
+	 * Show login register page
 	 */
 	public function getLoginRegister()
 	{
-		view('login-register');
+		//User must not be logged in to see this page
+		if(!isLoggedIn()) {
+			//Show login an register page
+			view('login-register');
+		} else {
+			//user is logged in
+			//Go back to home page
+			header('location:/blog');
+		}
 	}
-
 }

@@ -21,6 +21,11 @@ $routes = [
 	'login-process' => 'AuthController@postLogin',
 
 	/*
+	 * Logout user
+	 */
+	'logout' => 'AuthController@getLogout',
+
+	/*
 	 * Post register
 	 */
 	'register-process' => 'AuthController@postRegister',
