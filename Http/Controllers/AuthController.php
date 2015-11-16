@@ -38,7 +38,13 @@ class AuthController
 			//Validator is false
 			$validator = false;
 		}
-
+		if(!isset($_POST['password']) || $_POST['password'] == '') {
+			//Set error message for login form username
+			$data['login_error_messages']['password'] = 'Password is required!';
+			//Validator is false
+			$validator = false;
+		}
+			
 		//If form is valid the continue processing
 		if($validator) {
 			//Query to check username and password in database
