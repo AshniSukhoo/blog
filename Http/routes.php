@@ -30,4 +30,9 @@ $routes = [
 	 */
 	'register-process' => 'AuthController@postRegister',
 
+	/*
+	 * About page
+	 */
+	'about-us' => 'PagesController@getAbout'
+
 ];
