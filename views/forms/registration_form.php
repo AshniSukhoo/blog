@@ -1,7 +1,7 @@
 <form action="/blog/register-process" method="post" >
 	<table cellpadding="8">
 		<?php if(isset($alert_msg) && $alert_msg != '' ): ?>
-			<p>
+			<p style="color:green;">
 				<?=$alert_msg?>
 			</p>
 		<?php endif; ?>
