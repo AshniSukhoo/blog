@@ -23,4 +23,12 @@ class PagesController
 	{
 		view('about');
 	}
+	
+	/**
+	 * About queries
+	 */
+	public function getAboutQueries()
+	{
+		view('about-queries');
+	}
 }

@@ -33,6 +33,10 @@ $routes = [
 	/*
 	 * About page
 	 */
-	'about-us' => 'PagesController@getAbout'
-
+	'about-us' => 'PagesController@getAbout',
+	
+    /*
+	 * About queries
+	 */
+	 'about-queries' => 'PagesController@getAboutQueries',
 ];
